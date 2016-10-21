@@ -1,0 +1,46 @@
+<head>
+  <title>帳票印刷　サンプル</title>
+</head>
+
+<body class="A5">
+<div style="float:left;">
+  <section class="sheet padding-10mm">
+  {{#each tasks}}
+    {{> adjustinput}}
+  {{/each}}
+  </section>
+</div>
+
+<div style="float:left;">
+<form class="adjust">
+<table >
+  <tr>
+    <th>対象項目</th>
+    <th>上からの位置</th>
+    <th>左からの位置</th>
+  </tr>
+  {{#each tasks}}
+    {{> positInput}}
+  {{/each}}
+</table>
+</form>
+</div>
+</body>
+
+<template name="adjustinput">
+<input type="text" name="input{{_id}}" style="position:absolute;top:{{textTop}}mm;left:{{textLeft}}mm;" value="{{_id}}_{{textTitle}}"/> 
+</template>
+<template name="positInput">
+  <tr>
+	  <input type="hidden" name="text{{_id}}" value="{{_id}}" />
+	  <input type="hidden" name="text{{_id}}title" value="{{textTitle}}" />
+	  <td>{{textTitle}}</td>
+    <td>
+		<input type="text" name="text{{_id}}t" placeholder="上からの高さ" value="{{textTop}}"/>
+    </td>
+    <td>
+		<input type="text" name="text{{_id}}l" placeholder="左からの位置" value="{{textLeft}}" />
+    </td>
+  </tr>
+</template>
+
