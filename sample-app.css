@@ -9,10 +9,6 @@ body { margin: 0 }
 }
 
 /** Paper sizes **/
-body.A3           .sheet { width: 297mm; height: 419mm }
-body.A3.landscape .sheet { width: 420mm; height: 296mm }
-body.A4           .sheet { width: 210mm; height: 296mm }
-body.A4.landscape .sheet { width: 297mm; height: 209mm }
 body.A5           .sheet { width: 100mm; height: 200mm }
 body.A5.landscape .sheet { width: 210mm; height: 147mm }
 
@@ -21,10 +17,6 @@ body.A5.landscape .sheet { width: 210mm; height: 147mm }
 .sheet.padding-15mm { padding: 15mm }
 .sheet.padding-20mm { padding: 20mm }
 .sheet.padding-25mm { padding: 25mm }
-
-body section.sheet {
-background-image:url("/usa-cus1.jpg");
-}
 
 /** For screen preview **/
 @media screen {
@@ -38,8 +30,23 @@ background-image:url("/usa-cus1.jpg");
 
 /** Fix for Chrome issue #273306 **/
 @media print {
-           body.A3.landscape { width: 420mm }
-  body.A3, body.A4.landscape { width: 297mm }
-  body.A4, body.A5.landscape { width: 210mm }
-  body.A5                    { width: 148mm }
+  body.A5.landscape { width: 210mm }
+  body.A5                    { width: 148mm ;}
+  /** msaito add START**/
+  div.adjust { display:none }
+  section.sheet input {
+	border:none;
+  }
+  /** msaito add END**/
 }
+
+/** msaito add START**/
+body section.sheet {
+background-image:url("/usa-cus1.jpg");
+}
+
+section.sheet input {
+	background-color:transparent;
+}
+/** msaito add END**/
+
